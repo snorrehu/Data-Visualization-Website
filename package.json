@@ -2,9 +2,10 @@
   "name": "data-visualization-website",
   "version": "1.0.0",
   "description": "Da har jeg klona denne inne i Visual Studio Code - funker bra!!!",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
-    "d3": "^5.7.0"
+    "d3": "^5.7.0",
+    "express": "^4.16.3"
   },
   "devDependencies": {},
   "scripts": {
