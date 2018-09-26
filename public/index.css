@@ -3,7 +3,7 @@ body{
 }
 
 header{
-    background: url(water.jpg) no-repeat center center fixed;
+    background: url(/assets/water.jpg) no-repeat center center fixed;
     background-size: cover;
 
     height: 100vh;
