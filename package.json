@@ -2,7 +2,7 @@
   "name": "data-visualization-website",
   "version": "1.0.0",
   "description": "Da har jeg klona denne inne i Visual Studio Code - funker bra!!!",
-  "main": "index.html",
+  "main": "index.js",
   "dependencies": {
     "d3": "^5.7.0"
   },
