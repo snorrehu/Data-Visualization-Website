@@ -12,17 +12,31 @@
 </head>
 
 <body>
-
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#boxplots">Box Plots</a>
-        <a href="#bubblechart">Bubble Chart</a>
-        <a href="#scatterplot">Scatterplot Matrix</a>
-    </div>
-
     <header>
-        <h1>Her skal man kunne legge til filer</h1>
+        <h1>Data Visualizator</h1>
     </header>
+
+
+   <div id="upload">
+    <h2>Upload a CSV File</h2>
+
+    <b>CSV File</b> <input type="file" id="csvfile"> 
+    <br />
+    
+    <h3>Header</h3>
+    <option>true</option>
+    <option>false</option>
+    </select> 
+    
+    <br />
+    <button id="csvButton" type="button">Upload</button>
+    
+    <pre><code id="output"></code></pre>
+   </div>
+
+    
+
+  
 
     <script src ="../index.js"></script>
    
