@@ -12,7 +12,7 @@ d3.csv('iris.csv',function (data) {
     });
 
     console.log(selectData)
-    
+
 
     // Select X-axis Variable
     var span = body.append('span')
