@@ -1,10 +1,11 @@
 d3.csv('iris.csv',function (data) {
 // CSV section
     var body = d3.select('body')
-    var selectData = [ { "text" : "petal_length" },
-        { "text" : "petal_width" },
-        { "text" : "sepal_width" },
-        {"text":"sepal_length"},
+    var headers = d3.keys(data[0]);
+    var selectData = [ { "text" : headers[0] },
+        { "text" : headers[1] },
+        { "text" : headers[2] },
+        {"text": headers[3]},
     ]
 
     // Select X-axis Variable
@@ -45,14 +46,14 @@ d3.csv('iris.csv',function (data) {
     var colorScale = d3.scale.category20()
     var xScale = d3.scale.linear()
         .domain([
-            d3.min([0,d3.min(data,function (d) { return d['petal_width'] })]),
-            d3.max([0,d3.max(data,function (d) { return d['petal_width'] })])
+            d3.min([0,d3.min(data,function (d) { return d['sepal_width'] })]),
+            d3.max([0,d3.max(data,function (d) { return d['sepal_width'] })])
         ])
         .range([0,w])
     var yScale = d3.scale.linear()
         .domain([
-            d3.min([0,d3.min(data,function (d) { return d['sepal_length'] })]),
-            d3.max([0,d3.max(data,function (d) { return d['sepal_length'] })])
+            d3.min([0,d3.min(data,function (d) { return d['petal_length'] })]),
+            d3.max([0,d3.max(data,function (d) { return d['petal_length'] })])
         ])
         .range([h,0])
     // SVG
@@ -78,8 +79,8 @@ d3.csv('iris.csv',function (data) {
         .data(data)
         .enter()
         .append('circle')
-        .attr('cx',function (d) { return xScale(d['Annualized Return']) })
-        .attr('cy',function (d) { return yScale(d['Annualized Return']) })
+        .attr('cx',function (d) { return xScale(d['value']) })
+        .attr('cy',function (d) { return yScale(d['value']) })
         .attr('r','5')
         .attr('stroke','black')
         .attr('stroke-width',1)
@@ -100,9 +101,9 @@ d3.csv('iris.csv',function (data) {
         })
         .append('title') // Tooltip
         .text(function (d) { return d.variable +
-            '\nReturn: ' + formatPercent(d['Annualized Return']) +
-            '\nStd. Dev.: ' + formatPercent(d['Annualized Standard Deviation']) +
-            '\nMax Drawdown: ' + formatPercent(d['Maximum Drawdown']) })
+            '\nReturn: ' + formatPercent(d['value']) +
+            '\nStd. Dev.: ' + formatPercent(d['value']) +
+            '\nMax Drawdown: ' + formatPercent(d['value']) })
     // X-axis
     svg.append('g')
         .attr('class','axis')
@@ -115,7 +116,7 @@ d3.csv('iris.csv',function (data) {
         .attr('x',w)
         .attr('dy','.71em')
         .style('text-anchor','end')
-        .text('Annualized Return')
+        .text('good values')
     // Y-axis
     svg.append('g')
         .attr('class','axis')
@@ -128,7 +129,7 @@ d3.csv('iris.csv',function (data) {
         .attr('y',5)
         .attr('dy','.71em')
         .style('text-anchor','end')
-        .text('Annualized Return')
+        .text('the coolest values')
 
     function yChange() {
         var value = this.value // get the new y value
