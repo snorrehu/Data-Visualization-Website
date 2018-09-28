@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//cdn.opencpu.org/opencpu-0.4.js"></script>
+    <script src="//cdn.opencpu.org/opencpu-0.4.js"></script>
 
 </head>
 
@@ -18,26 +18,32 @@
         <h1>Data Visualizator</h1>
     </header>
 
+<div id="uploaders">
+    <div id="upload">
+        <p>Select local CSV File:</p>
+        <input id="csv" type="file">
+    </div>
 
-   <div id="upload">
-    <p>Select local CSV File:</p>
-<input id="csv" type="file">
+    <div id="uploadUrl">
+        <form onchange="getByUrl(event)">
+            <p>Enter URL</p>
+            <input id="csvUrl" type="text" ><br>
 
-<output id="out">
-    file contents will appear here
-</output>
-   </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
 
-    
 
-  
 
-    <script src ="../index.js"></script>
-    
-  
-   
- 
- 
+
+
+    <script src="../index.js"></script>
+
+
+
+
+
 
 
 
