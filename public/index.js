@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 d3.csv("iris.csv", function (flowers) {
 
     // Size parameters.
@@ -142,6 +143,16 @@ d3.csv("iris.csv", function (flowers) {
 
 //because read.csv is in utils
 ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R");
+=======
+d3.csv('iris.csv',function (data) {
+// CSV section
+    var body = d3.select('body')
+    var selectData = [ { "text" : "petal_length" },
+        { "text" : "petal_width" },
+        { "text" : "sepal_width" },
+        {"text":"sepal_length"},
+    ]
+>>>>>>> 937142c49ba4796eeed5c923aa4d0f0f3e171579
 
 //actual handler
 $("#submitbutton").on("click", function(){
