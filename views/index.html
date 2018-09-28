@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
     <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//cdn.opencpu.org/opencpu-0.4.js"></script>
 
 </head>
 
@@ -18,20 +20,12 @@
 
 
    <div id="upload">
-    <h2>Upload a CSV File</h2>
+    <p>Select local CSV File:</p>
+<input id="csv" type="file">
 
-    <b>CSV File</b> <input type="file" id="csvfile"> 
-    <br />
-    
-    <h3>Header</h3>
-    <option>true</option>
-    <option>false</option>
-    </select> 
-    
-    <br />
-    <button id="csvButton" type="button">Upload</button>
-    
-    <pre><code id="output"></code></pre>
+<output id="out">
+    file contents will appear here
+</output>
    </div>
 
     
@@ -39,6 +33,8 @@
   
 
     <script src ="../index.js"></script>
+    
+  
    
  
  
