@@ -2,7 +2,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-header{
+body{
     background: url(/assets/water.jpg) no-repeat center center fixed;
     background-size: cover;
 
@@ -59,6 +59,7 @@ article{
 
 .box {
     font: 10px sans-serif;
+    justify-content: center;
 }
 
 .box line,
