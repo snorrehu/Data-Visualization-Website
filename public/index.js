@@ -1,5 +1,3 @@
-
-
 d3.csv("iris.csv", function (flowers) {
 
     // Size parameters.
