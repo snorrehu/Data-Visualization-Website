@@ -2,6 +2,7 @@ d3.csv('iris.csv',function (data) {
 // CSV section
     var body = d3.select('body')
     var headers = d3.keys(data[0]);
+
     var selectData = [ { "text" : headers[0] },
         { "text" : headers[1] },
         { "text" : headers[2] },
@@ -140,12 +141,12 @@ d3.csv('iris.csv',function (data) {
             ])
         yAxis.scale(yScale) // change the yScale
         d3.select('#yAxis') // redraw the yAxis
-            .transition().duration(1000)
+            .transition().duration(10)
             .call(yAxis)
         d3.select('#yAxisLabel') // change the yAxisLabel
             .text(value)
         d3.selectAll('circle') // move the circles
-            .transition().duration(1000)
+            .transition().duration(10)
             .delay(function (d,i) { return i*100})
             .attr('cy',function (d) { return yScale(d[value]) })
     }
@@ -159,14 +160,14 @@ d3.csv('iris.csv',function (data) {
             ])
         xAxis.scale(xScale) // change the xScale
         d3.select('#xAxis') // redraw the xAxis
-            .transition().duration(1000)
+            .transition().duration(10)
             .call(xAxis)
         d3.select('#xAxisLabel') // change the xAxisLabel
-            .transition().duration(1000)
+            .transition().duration(10)
             .text(value)
         d3.selectAll('circle') // move the circles
-            .transition().duration(1000)
-            .delay(function (d,i) { return i*100})
+            .transition().duration(10)
+            .delay(function (d,i) { return i*10})
             .attr('cx',function (d) { return xScale(d[value]) })
     }
 })
