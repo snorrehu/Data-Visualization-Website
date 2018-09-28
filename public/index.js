@@ -1,5 +1,3 @@
-
-
 d3.csv('iris.csv',function (data) {
 // CSV section
     var body = d3.select('body')
@@ -47,19 +45,20 @@ d3.csv('iris.csv',function (data) {
     var margin = { top: 50, right: 50, bottom: 50, left: 50 }
     var h = 500 - margin.top - margin.bottom
     var w = 500 - margin.left - margin.right
-    var formatPercent = d3.format('.2%')
+    var formatPercent = d3.format('.1f')
     // Scales
     var colorScale = d3.scale.category20()
     var xScale = d3.scale.linear()
         .domain([
-            d3.min([0,d3.min(data,function (d) { return d['petal_width'] })]),
-            d3.max([0,d3.max(data,function (d) { return d['petal_width'] })])
+            d3.min([0,d3.min(data,function (d) { return d.text; })]),
+            d3.max([0,d3.max(data,function (d) { return d.text; })])
         ])
         .range([0,w])
     var yScale = d3.scale.linear()
         .domain([
-            d3.min([0,d3.min(data,function (d) { return d['sepal_length'] })]),
-            d3.max([0,d3.max(data,function (d) { return d['sepal_length'] })])
+            d3.min([0,d3.min(data,function (d) { return d.text; })]),
+            d3.max([0,d3.max(data,function (d) { return d.text; })])
+           // d3.max([0,d3.max(data,function (d) { return d['petal_length'] })])
         ])
         .range([h,0])
     // SVG
@@ -85,13 +84,13 @@ d3.csv('iris.csv',function (data) {
         .data(data)
         .enter()
         .append('circle')
-        .attr('cx',function (d) { return xScale(d['Annualized Return']) })
-        .attr('cy',function (d) { return yScale(d['Annualized Return']) })
+        .attr('cx',function (d) { return xScale(d['value']) })
+        .attr('cy',function (d) { return yScale(d['value']) })
         .attr('r','5')
         .attr('stroke','black')
         .attr('stroke-width',1)
         .attr('fill',function (d,i) { return colorScale(i) })
-        .on('mouseover', function () {
+       /* .on('mouseover', function () {
             d3.select(this)
                 .transition()
                 .duration(500)
@@ -104,12 +103,12 @@ d3.csv('iris.csv',function (data) {
                 .duration(500)
                 .attr('r',5)
                 .attr('stroke-width',1)
-        })
-        .append('title') // Tooltip
+        })*/
+       /* .append('title') // Tooltip
         .text(function (d) { return d.variable +
-            '\nReturn: ' + formatPercent(d['Annualized Return']) +
-            '\nStd. Dev.: ' + formatPercent(d['Annualized Standard Deviation']) +
-            '\nMax Drawdown: ' + formatPercent(d['Maximum Drawdown']) })
+            '\nReturn: ' + formatPercent(d['value']) +
+            '\nStd. Dev.: ' + formatPercent(d['value']) +
+            '\nMax Drawdown: ' + formatPercent(d['value']) })*/
     // X-axis
     svg.append('g')
         .attr('class','axis')
@@ -122,7 +121,7 @@ d3.csv('iris.csv',function (data) {
         .attr('x',w)
         .attr('dy','.71em')
         .style('text-anchor','end')
-        .text('Annualized Return')
+        .text('good values')
     // Y-axis
     svg.append('g')
         .attr('class','axis')
@@ -135,7 +134,7 @@ d3.csv('iris.csv',function (data) {
         .attr('y',5)
         .attr('dy','.71em')
         .style('text-anchor','end')
-        .text('Annualized Return')
+        .text('the coolest values')
 
     function yChange() {
         var value = this.value // get the new y value
@@ -146,13 +145,13 @@ d3.csv('iris.csv',function (data) {
             ])
         yAxis.scale(yScale) // change the yScale
         d3.select('#yAxis') // redraw the yAxis
-            .transition().duration(1000)
+            .transition().duration(10)
             .call(yAxis)
         d3.select('#yAxisLabel') // change the yAxisLabel
             .text(value)
         d3.selectAll('circle') // move the circles
-            .transition().duration(1000)
-            .delay(function (d,i) { return i*100})
+            .transition().duration(10)
+            .delay(function (d,i) { return i*10})
             .attr('cy',function (d) { return yScale(d[value]) })
     }
 
@@ -165,14 +164,14 @@ d3.csv('iris.csv',function (data) {
             ])
         xAxis.scale(xScale) // change the xScale
         d3.select('#xAxis') // redraw the xAxis
-            .transition().duration(1000)
+            .transition().duration(10)
             .call(xAxis)
         d3.select('#xAxisLabel') // change the xAxisLabel
-            .transition().duration(1000)
+            .transition().duration(10)
             .text(value)
         d3.selectAll('circle') // move the circles
-            .transition().duration(1000)
-            .delay(function (d,i) { return i*100})
+            .transition().duration(10)
+            .delay(function (d,i) { return i*10})
             .attr('cx',function (d) { return xScale(d[value]) })
     }
 })
