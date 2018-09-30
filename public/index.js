@@ -1,10 +1,12 @@
+
 var fileInput = document.getElementById("csv");
 let csvInput;
+let svg;
 
     readFile = function () {
+
         var reader = new FileReader();
         reader.onload = function () {
-           
           csvCall(reader.result);
         };
         // start reading the file. When it is done, calls the onload event defined above.
@@ -12,7 +14,7 @@ let csvInput;
         
     };
 
-fileInput.addEventListener('change', readFile); 
+fileInput.addEventListener('change', readFile);
 
 function getByUrl(event) {
     event.preventDefault();
@@ -22,25 +24,37 @@ function getByUrl(event) {
 
 
 function csvCall(csvInput) {
+d3.select("svg").remove();
+d3.select("span").remove();
 
 d3.csv(csvInput,function (data) {
 // CSV section
     var body = d3.select('body')
     var headers = d3.keys(data[0]);
-
     let selectData = [];
+    var secondLine = d3.values(data[1]);
+    var headerRegex = /[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)/;
+    var indexer =0;
 
+    headers.forEach(function(headers, index) {
+        if(headerRegex.test(secondLine[indexer])===true) {
+            selectData[index] = {"text": headers}
+        }
+        indexer++;
+    });
+
+    /*
     headers.forEach(function(headers, index) {
         selectData[index] = {"text": headers }
     });
+    */
 
     console.log(selectData)
-
 
     // Select X-axis Variable
     var span = body.append('span')
         .text('Select X-Axis variable: ')
-    var yInput = body.append('select')
+    var xInput = body.append('select')
         .attr('id','xSelect')
         .on('change',xChange)
         .selectAll('option')
@@ -86,24 +100,28 @@ d3.csv(csvInput,function (data) {
            // d3.max([0,d3.max(data,function (d) { return d['petal_length'] })])
         ])
         .range([h,0])
+
     // SVG
-    var svg = body.append('svg')
+    svg = body.append('svg')
         .attr('height',h + margin.top + margin.bottom)
         .attr('width',w + margin.left + margin.right)
         .append('g')
         .attr('transform','translate(' + margin.left + ',' + margin.top + ')')
+
     // X-axis
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .tickFormat(formatPercent)
         .ticks(5)
         .orient('bottom')
+
     // Y-axis
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .tickFormat(formatPercent)
         .ticks(5)
         .orient('left')
+
     // Circles
     var circles = svg.selectAll('circle')
         .data(data)
@@ -115,25 +133,7 @@ d3.csv(csvInput,function (data) {
         .attr('stroke','black')
         .attr('stroke-width',1)
         .attr('fill',function (d,i) { return colorScale(i) })
-       /* .on('mouseover', function () {
-            d3.select(this)
-                .transition()
-                .duration(500)
-                .attr('r',20)
-                .attr('stroke-width',3)
-        })
-        .on('mouseout', function () {
-            d3.select(this)
-                .transition()
-                .duration(500)
-                .attr('r',5)
-                .attr('stroke-width',1)
-        })*/
-       /* .append('title') // Tooltip
-        .text(function (d) { return d.variable +
-            '\nReturn: ' + formatPercent(d['value']) +
-            '\nStd. Dev.: ' + formatPercent(d['value']) +
-            '\nMax Drawdown: ' + formatPercent(d['value']) })*/
+
     // X-axis
     svg.append('g')
         .attr('class','axis')
@@ -142,11 +142,12 @@ d3.csv(csvInput,function (data) {
         .call(xAxis)
         .append('text') // X-axis Label
         .attr('id','xAxisLabel')
-        .attr('y',-10)
-        .attr('x',w)
+        .attr('y',30)
+        .attr('x',w/2)
         .attr('dy','.71em')
-        .style('text-anchor','end')
-        .text('good values')
+        .style('text-anchor','middle')
+        //.text('good values')
+
     // Y-axis
     svg.append('g')
         .attr('class','axis')
@@ -155,11 +156,11 @@ d3.csv(csvInput,function (data) {
         .append('text') // y-axis Label
         .attr('id', 'yAxisLabel')
         .attr('transform','rotate(-90)')
-        .attr('x',0)
-        .attr('y',5)
-        .attr('dy','.71em')
-        .style('text-anchor','end')
-        .text('the coolest values')
+        .attr("x",0 - (h / 2))
+        .attr("y", 0 - margin.left)
+        .attr('dy','1em')
+        .style('text-anchor','middle')
+        //.text('the coolest values')
 
     function yChange() {
         var value = this.value // get the new y value
@@ -199,5 +200,9 @@ d3.csv(csvInput,function (data) {
             .delay(function (d,i) { return i*10})
             .attr('cx',function (d) { return xScale(d[value]) })
     }
+
 })
 }
+
+
+
