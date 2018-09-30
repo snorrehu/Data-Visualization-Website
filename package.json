@@ -1,24 +1,27 @@
 {
-  "name": "data-visualization-website",
-  "version": "1.0.0",
-  "description": "Da har jeg klona denne inne i Visual Studio Code - funker bra!!!",
-  "main": "server.js",
-  "dependencies": {
-    "d3": "^5.7.0",
-    "express": "^4.16.3"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snorrehu/Data-Visualization-Website.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/snorrehu/Data-Visualization-Website/issues"
-  },
-  "homepage": "https://github.com/snorrehu/Data-Visualization-Website#readme"
+	"name": "data-visualization-website",
+	"version": "1.0.0",
+	"description": "Da har jeg klona denne inne i Visual Studio Code - funker bra!!!",
+	"main": "server.js",
+	"dependencies": {
+		"d3": "^5.7.0",
+		"express": "^4.16.3"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/snorrehu/Data-Visualization-Website.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/snorrehu/Data-Visualization-Website/issues"
+	},
+	"engines": {
+		"node": "10.6.0"
+	}
 }

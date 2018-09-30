@@ -1,72 +1,70 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-body{
-    //background: url(/assets/wall.jpg) no-repeat center center fixed;
-    background-color: #E6E6FA;
-    background-size: cover;
+body {
+	//background: url(/assets/wall.jpg) no-repeat center center fixed;
+	background-color: #e6e6fa;
+	background-size: cover;
 
-    height: 100vh;
-    min-height: 100vh;
-    margin: auto;
+	height: 100vh;
+	min-height: 100vh;
+	margin: auto;
 
-    
-    flex-direction: column;
-    justify-content: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
-input[type=text] {
-  padding:5px; 
-  border:2px solid #ccc; 
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+input[type='text'] {
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
-input[type=text]:focus {
-  border-color:#333;
+input[type='text']:focus {
+	border-color: #333;
 }
 
-
-h1{
-    color:black;
-    font-size: 300%;
-    text-transform: uppercase;
-    //text-shadow: 4px 4px 20px #000;
-    text-align: center;
-    font-family: arial;
+h1 {
+	color: black;
+	font-size: 300%;
+	text-transform: uppercase;
+	//text-shadow: 4px 4px 20px #000;
+	text-align: center;
+	font-family: arial;
 }
 
 #uploaders {
-  color:black;
-    font-size: 100%;
-    font-weight: bold;
-    text-transform: uppercase;
-    //text-shadow: 4px 4px 20px #000;
-    text-align: center;
-    font-family: arial;
-    justify-content: center;
-    display: grid;
-    margin: 1%;
+	color: black;
+	font-size: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+	//text-shadow: 4px 4px 20px #000;
+	text-align: center;
+	font-family: arial;
+	justify-content: center;
+	display: grid;
+	margin: 1%;
 }
 
-article{
-    width: 40%;
-    margin: 0 auto;
-    font-size: 20px;
+article {
+	width: 40%;
+	margin: 0 auto;
+	font-size: 20px;
 }
 
 svg {
-    display: block;
-    margin: 0 auto;
-    font-size: 14px;
-  }
-  
-  .axis {
-    shape-rendering: crispEdges;
-  }
+	display: block;
+	margin: 0 auto;
+	font-size: 14px;
+}
 
-  /*
+.axis {
+	shape-rendering: crispEdges;
+}
+
+/*
   .axis line {
     stroke: #ddd;
     stroke-width: .5px;
@@ -77,57 +75,95 @@ svg {
   }
   */
 
-    label {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-    }
+label {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+}
 
-    .axis path,
-    .axis line {
-        fill: none;
-        stroke: #000;
-        shape-rendering: crispEdges;
-    }
-  
-  rect.extent {
-    fill: #000;
-    fill-opacity: .125;
-    stroke: #fff;
-  }
-  
-  rect.frame {
-    fill: #fff;
-    fill-opacity: .7;
-    stroke: #aaa;
-  }
-  
-  circle {
-    fill: #ccc;
-    fill-opacity: .5;
-  }
-  
-  .legend circle {
-    fill-opacity: 1;
-  }
-  
-  .legend text {
-    font-size: 18px;
-    font-style: oblique;
-  }
-  
-  .cell text {
-    pointer-events: none;
-  }
-  
-  .setosa {
-    fill: #800;
-  }
-  
-  .versicolor {
-    fill: #080;
-  }
-  
-  .virginica {
-    fill: #008;
-  }
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+rect.extent {
+	fill: #000;
+	fill-opacity: 0.125;
+	stroke: #fff;
+}
+
+rect.frame {
+	fill: #fff;
+	fill-opacity: 0.7;
+	stroke: #aaa;
+}
+
+circle {
+	fill: #ccc;
+	fill-opacity: 0.5;
+}
+
+.legend circle {
+	fill-opacity: 1;
+}
+
+.legend text {
+	font-size: 18px;
+	font-style: oblique;
+}
+
+.cell text {
+	pointer-events: none;
+}
+
+.setosa {
+	fill: #800;
+}
+
+.versicolor {
+	fill: #080;
+}
+
+.virginica {
+	fill: #008;
+}
+
+.box {
+	font: 10px sans-serif;
+}
+
+.box line,
+.box rect,
+.box circle {
+	fill: steelblue;
+	stroke: #000;
+	stroke-width: 1px;
+}
+
+.box .center {
+	stroke-dasharray: 3, 3;
+}
+
+.box .outlier {
+	fill: none;
+	stroke: #000;
+}
+
+.axis {
+	font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.x.axis path {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
