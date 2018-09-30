@@ -3,7 +3,6 @@ body {
 }
 
 body {
-	//background: url(/assets/wall.jpg) no-repeat center center fixed;
 	background-color: #e6e6fa;
 	background-size: cover;
 
@@ -30,7 +29,7 @@ h1 {
 	color: black;
 	font-size: 300%;
 	text-transform: uppercase;
-	//text-shadow: 4px 4px 20px #000;
+
 	text-align: center;
 	font-family: arial;
 }
