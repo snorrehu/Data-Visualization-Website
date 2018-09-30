@@ -18,29 +18,22 @@
         <h1>Data Visualizator</h1>
     </header>
 
-<div id="uploaders">
-    <div id="upload">
-        <p>Select local CSV File:</p>
-        <input id="csv" type="file">
+    <div id="uploaders">
+        <div id="upload">
+            <p>Select local CSV File:</p>
+            <input id="csv" type="file">
+        </div>
+
+        <div id="uploadUrl">
+            <form onchange="getByUrl(event)">
+                <p>Enter URL</p>
+                <input id="csvUrl" type="text" ><br>
+            </form>
+        </div>
     </div>
-
-    <div id="uploadUrl">
-        <form onchange="getByUrl(event)">
-            <p>Enter URL</p>
-            <input id="csvUrl" type="text" ><br>
-        </form>
+    <div>
+        <script src="../index.js"></script>
     </div>
-</div>
-
-    <script src="../index.js"></script>
-
-
-
-
-
-
-
-
 
 
 </body>

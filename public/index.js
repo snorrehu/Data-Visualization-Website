@@ -26,6 +26,10 @@ function getByUrl(event) {
 function csvCall(csvInput) {
 d3.select("svg").remove();
 d3.select("span").remove();
+d3.select("select").remove();
+d3.select("span").remove();
+d3.select("select").remove();
+
 
 d3.csv(csvInput,function (data) {
 // CSV section
@@ -52,7 +56,7 @@ d3.csv(csvInput,function (data) {
     console.log(selectData)
 
     // Select X-axis Variable
-    var span = body.append('span')
+    var spanX = body.append('span')
         .text('Select X-Axis variable: ')
     var xInput = body.append('select')
         .attr('id','xSelect')
