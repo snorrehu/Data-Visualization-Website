@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"start": "server.js",
+		"start": "node server.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -22,6 +22,6 @@
 		"url": "https://github.com/snorrehu/Data-Visualization-Website/issues"
 	},
 	"engines": {
-		"node": "10.6.0"
+		"node": "8.10.0"
 	}
 }
